@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ActiveRecord::Base.transaction do
+  Todo.destroy_all
+
+  todo_1 = Todo.create!(title: "Clean kitchen" ,body: "Quickly!" ,done: false )
+  todo_2 = Todo.create!(title: "Setup rails project" ,body: "without notes" ,done: true )
+  todo_3 = Todo.create!(title: "Complete schema" ,body: "do it" ,done: true )
+
+end
